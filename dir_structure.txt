@@ -1,0 +1,256 @@
+afterlife-ai-ui/
+├── README.md
+├── requirements.txt
+├── setup.py
+├── main.py
+├── config.ini
+├── .env.example
+├── .gitignore
+│
+├── assets/
+│   ├── icons/
+│   │   ├── app/
+│   │   │   ├── logo.svg
+│   │   │   ├── shield.svg
+│   │   │   └── warning.svg
+│   │   ├── navigation/
+│   │   │   ├── dashboard.svg
+│   │   │   ├── scan.svg
+│   │   │   ├── quarantine.svg
+│   │   │   ├── settings.svg
+│   │   │   └── reports.svg
+│   │   ├── status/
+│   │   │   ├── protected.svg
+│   │   │   ├── scanning.svg
+│   │   │   ├── threat.svg
+│   │   │   └── offline.svg
+│   │   └── actions/
+│   │       ├── play.svg
+│   │       ├── pause.svg
+│   │       ├── stop.svg
+│   │       └── refresh.svg
+│   ├── sounds/
+│   │   ├── alert.wav
+│   │   ├── scan_complete.wav
+│   │   └── threat_detected.wav
+│   ├── images/
+│   │   ├── backgrounds/
+│   │   ├── illustrations/
+│   │   └── logos/
+│   └── themes/
+│       ├── dark.qss
+│       ├── light.qss
+│       └── custom.qss
+│
+├── src/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── app.py
+│   │
+│   ├── ui/
+│   │   ├── __init__.py
+│   │   ├── base/
+│   │   │   ├── __init__.py
+│   │   │   ├── window.py           # Base window class
+│   │   │   ├── widget.py           # Base widget class
+│   │   │   ├── dialog.py           # Base dialog class
+│   │   │   └── frame.py            # Base frame class
+│   │   │
+│   │   ├── components/
+│   │   │   ├── __init__.py
+│   │   │   ├── buttons/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── action_button.py
+│   │   │   │   ├── toggle_button.py
+│   │   │   │   ├── icon_button.py
+│   │   │   │   └── progress_button.py
+│   │   │   ├── cards/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── status_card.py
+│   │   │   │   ├── metric_card.py
+│   │   │   │   ├── threat_card.py
+│   │   │   │   └── scan_card.py
+│   │   │   ├── charts/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── pie_chart.py
+│   │   │   │   ├── line_chart.py
+│   │   │   │   ├── bar_chart.py
+│   │   │   │   └── progress_ring.py
+│   │   │   ├── forms/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── input_field.py
+│   │   │   │   ├── dropdown.py
+│   │   │   │   ├── checkbox.py
+│   │   │   │   └── slider.py
+│   │   │   ├── lists/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── file_list.py
+│   │   │   │   ├── threat_list.py
+│   │   │   │   ├── scan_history.py
+│   │   │   │   └── quarantine_list.py
+│   │   │   ├── navigation/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── sidebar.py
+│   │   │   │   ├── breadcrumb.py
+│   │   │   │   ├── tabbar.py
+│   │   │   │   └── menu.py
+│   │   │   ├── notifications/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── toast.py
+│   │   │   │   ├── alert.py
+│   │   │   │   ├── banner.py
+│   │   │   │   └── popup.py
+│   │   │   ├── progress/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── progress_bar.py
+│   │   │   │   ├── circular_progress.py
+│   │   │   │   ├── step_progress.py
+│   │   │   │   └── animated_progress.py
+│   │   │   └── overlays/
+│   │   │       ├── __init__.py
+│   │   │       ├── loading_overlay.py
+│   │   │       ├── modal.py
+│   │   │       └── tooltip.py
+│   │   │
+│   │   ├── windows/
+│   │   │   ├── __init__.py
+│   │   │   ├── main_window.py
+│   │   │   ├── settings_window.py
+│   │   │   ├── scan_window.py
+│   │   │   ├── quarantine_window.py
+│   │   │   ├── reports_window.py
+│   │   │   └── about_window.py
+│   │   │
+│   │   ├── views/
+│   │   │   ├── __init__.py
+│   │   │   ├── dashboard/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── dashboard_view.py
+│   │   │   │   ├── overview_widget.py
+│   │   │   │   ├── status_widget.py
+│   │   │   │   ├── quick_actions.py
+│   │   │   │   ├── recent_activity.py
+│   │   │   │   └── threat_overview.py
+│   │   │   ├── scanning/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── scan_view.py
+│   │   │   │   ├── scan_controls.py
+│   │   │   │   ├── scan_progress.py
+│   │   │   │   ├── scan_results.py
+│   │   │   │   ├── file_selector.py
+│   │   │   │   └── schedule_scan.py
+│   │   │   ├── detection/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── detection_view.py
+│   │   │   │   ├── ml_models.py
+│   │   │   │   ├── signature_db.py
+│   │   │   │   ├── yara_rules.py
+│   │   │   │   ├── threat_intel.py
+│   │   │   │   └── engine_settings.py
+│   │   │   ├── quarantine/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── quarantine_view.py
+│   │   │   │   ├── quarantine_manager.py
+│   │   │   │   ├── file_viewer.py
+│   │   │   │   └── restore_dialog.py
+│   │   │   ├── monitoring/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── monitor_view.py
+│   │   │   │   ├── realtime_monitor.py
+│   │   │   │   ├── process_monitor.py
+│   │   │   │   ├── network_monitor.py
+│   │   │   │   └── file_monitor.py
+│   │   │   ├── reports/
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── reports_view.py
+│   │   │   │   ├── scan_reports.py
+│   │   │   │   ├── threat_reports.py
+│   │   │   │   ├── system_reports.py
+│   │   │   │   └── export_dialog.py
+│   │   │   └── settings/
+│   │   │       ├── __init__.py
+│   │   │       ├── settings_view.py
+│   │   │       ├── general_settings.py
+│   │   │       ├── scan_settings.py
+│   │   │       ├── detection_settings.py
+│   │   │       ├── notification_settings.py
+│   │   │       ├── update_settings.py
+│   │   │       └── advanced_settings.py
+│   │   │
+│   │   └── dialogs/
+│   │       ├── __init__.py
+│   │       ├── file_dialog.py
+│   │       ├── confirmation_dialog.py
+│   │       ├── progress_dialog.py
+│   │       ├── error_dialog.py
+│   │       ├── threat_details.py
+│   │       └── update_dialog.py
+│   │
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── app_core.py              # Application core
+│   │   ├── config_manager.py        # Configuration management
+│   │   ├── theme_manager.py         # Theme and styling
+│   │   ├── event_manager.py         # Event handling
+│   │   ├── signal_manager.py        # Qt signals
+│   │   └── resource_manager.py      # Resource loading
+│   │
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── animations.py            # Animation utilities
+│   │   ├── validators.py            # Input validation
+│   │   ├── formatters.py           # Data formatting
+│   │   ├── icons.py                # Icon management
+│   │   ├── styles.py               # Style utilities
+│   │   └── helpers.py              # General helpers
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── scan_model.py           # Scan data models
+│   │   ├── threat_model.py         # Threat data models
+│   │   ├── file_model.py           # File data models
+│   │   ├── settings_model.py       # Settings models
+│   │   └── report_model.py         # Report models
+│   │
+│   ├── controllers/
+│   │   ├── __init__.py
+│   │   ├── main_controller.py      # Main application controller
+│   │   ├── scan_controller.py      # Scan operations
+│   │   ├── detection_controller.py # Detection engines
+│   │   ├── quarantine_controller.py # Quarantine management
+│   │   ├── monitor_controller.py   # Real-time monitoring
+│   │   └── settings_controller.py  # Settings management
+│   │
+│   ├── services/
+│   │   ├── __init__.py
+│   │   ├── scan_service.py         # Scanning service
+│   │   ├── detection_service.py    # Detection service
+│   │   ├── update_service.py       # Update service
+│   │   ├── notification_service.py # Notifications
+│   │   └── export_service.py       # Data export
+│   │
+│   └── integration/
+│       ├── __init__.py
+│       ├── backend_bridge.py       # Bridge to core components
+│       ├── ml_integration.py       # ML models integration
+│       ├── signature_integration.py # Signature detection
+│       ├── yara_integration.py     # YARA rules
+│       └── monitoring_integration.py # Real-time monitoring
+│
+├── tests/
+│   ├── __init__.py
+│   ├── test_ui/
+│   ├── test_components/
+│   ├── test_controllers/
+│   └── test_integration/
+│
+├── docs/
+│   ├── api/
+│   ├── design/
+│   ├── user_guide/
+│   └── development/
+│
+└── tools/
+    ├── build_tools/
+    ├── icon_generator/
+    └── theme_builder/
